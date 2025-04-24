@@ -1,1 +1,0 @@
-<div class="projimg"><img src={`./${project.id}/${project.id}.png`} alt="project picture" /></div>
