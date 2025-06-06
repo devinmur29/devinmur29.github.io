@@ -111,6 +111,10 @@ a:hover {
   font-weight: bold;
 }
 
+body .container-blog{
+  max-width: 900px;
+}
+
 .section-item {
   margin-top: 20px;
 }
@@ -126,9 +130,34 @@ a:hover {
   display: inline-block;
 }
 
+.blog-title {
+  font-weight: normal;
+  font-size: var(--name-font-size);
+  line-height: var(--line-height);
+  display: inline-block;
+}
+
+.blog-wrapper .section-item .title {
+  font-size: 18px;
+}
+
+.blog-wrapper .section-item .blog-summary {
+  font-size: 13px;
+  color: var(--dark-gray)
+}
+
+#bloglink{
+  font-size: 20px;
+  color: var(--cardinal);
+}
+
 .col-wrapper {
   padding-left: 10px;
   padding-right: 10px;
+}
+
+.blog-content{
+  max-width: 800px;
 }
 
 .sec-wrapper {
@@ -454,3 +483,5 @@ a:hover {
 .citation p {
   margin-bottom: 0;
 }
+
+
