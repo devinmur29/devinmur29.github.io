@@ -196,7 +196,14 @@ body .container-blog{
     font-size: var(--mobile-section-title-font-size);
     line-height: var(--mobile-line-height);
   }
+
+  #bloglink{
+    margin-top: 10px;
+    font-size: var(--mobile-font-size);
+  }
+
 }
+
 
 @media (min-width: 768px) {
   .section-sub {
