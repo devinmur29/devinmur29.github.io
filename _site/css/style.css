@@ -160,6 +160,10 @@ body .container-blog{
   max-width: 800px;
 }
 
+.blog-content img {
+  max-width: 600px;
+}
+
 .sec-wrapper {
   margin-top: 30px;
 }
@@ -201,6 +205,14 @@ body .container-blog{
     margin-top: 10px;
     font-size: var(--mobile-font-size);
   }
+
+  .blog-title{
+    line-height: 35px;
+  }
+
+  .blog-content img {
+  max-width: calc(100vw - 4rem);
+}
 
 }
 
