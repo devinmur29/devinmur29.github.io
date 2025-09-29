@@ -133,8 +133,7 @@ body .container-blog{
 .blog-title {
   font-weight: normal;
   font-size: var(--name-font-size);
-  line-height: var(--line-height);
-  display: inline-block;
+  line-height: 30px;
 }
 
 .blog-wrapper .section-item .title {
@@ -503,4 +502,71 @@ body .container-blog{
   margin-bottom: 0;
 }
 
+.blog-content figure {
+  display: flex;               /* makes the images row flexbox */
+  flex-wrap: wrap;             /* wrap on smaller screens */
+  justify-content: center;      /* center images horizontally */
+  gap: 1rem;                   /* space between images */
+  margin: 2rem auto;
+  max-width: 1000px;
+  text-align: center;           /* caption centered */
+}
 
+.blog-content > figure > img {
+  max-width: 400px;        /* caption centered */
+  border-radius: 0.5rem;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+}
+
+.blog-content .image-row {
+  display: flex;               /* makes the images row flexbox */
+  flex-wrap: wrap;             /* wrap on smaller screens */
+  justify-content: center;      /* center images horizontally */
+  gap: 1rem;                   /* space between images */
+  margin: 2rem auto;
+  max-width: 1000px;
+  text-align: center;           /* caption centered */
+  align-items: center;
+}
+
+.map-container {
+  position: relative;
+  width: 100%;
+  padding-bottom: 75%; /* 4:3 aspect ratio (480/640 = 0.75) */
+  height: 0;
+  overflow: hidden;
+}
+
+.map-container iframe {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  border: 0;
+}
+
+
+.blog-content .image-row img {
+  max-width: 250px; /* caps size of vertical iPhone images */
+  width: 100%; /* responsive shrink on small screens */
+  height: auto;
+  border-radius: 0.5rem;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+  flex: 1 0 auto; /* key change */
+}
+
+.blog-content .image-row video {
+  max-width: 250px;            /* caps size of vertical iPhone images */
+  width: 100%;                 /* responsive shrink on small screens */
+  height: auto;
+  border-radius: 0.5rem;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+  flex: 1 0 auto; /* key change */           /* images grow/shrink for side-by-side layout */
+}
+.blog-content figure figcaption {
+  width: 100%;                 /* caption spans full figure width */
+  margin-top: 0.5rem;
+  font-size: 0.9rem;
+  color: #666;
+}
