@@ -6,7 +6,7 @@ permalink: "/posts/buffalo-to-seattle-1/"
 summary: "The US of A is so big"
 ---
 
-I'm starting my PhD at the [University of Washington](https://www.ece.uw.edu/) on September 24th! This will be the farthest west I have ever lived, and as such the logistics of moving are a bit more complicated. For a while I considered shippping most of my belongings, flying out there, and buying anew whatever I couldn't bring with me.
+I'm starting my PhD at the [University of Washington](https://www.ece.uw.edu/) on September 24th! This will be the farthest west I have ever lived, and as such the logistics of moving are a bit more complicated. For a while I considered shipping most of my belongings, flying out there, and buying anew whatever I couldn't bring with me.
 
 About a month before starting my program it dawned on me that I could get myself *and* my belongings out to Washington via the open-road. Looking at a map of the USA I realized there would be a lot I haven't seen on the way, and it felt like a good opportunity to explore these parts of the US while I had the time. 
 
@@ -61,7 +61,7 @@ The inside looked cool too and was a nice spot for a restroom/water break.
 
 <figure class="image-row">
   <img src="./generalmotors_inside.JPEG" alt="GM Inside">
-  <video src="./generalmotors_inside.mp4" alt="GM Inside Video" autoplay loop muted></video>
+  <video src="./generalmotors_inside.MP4" alt="GM Inside Video" autoplay loop muted></video>
   <figcaption>Vroom vroom</figcaption>
 </figure>
 
@@ -96,7 +96,7 @@ I then hiked back down and laid out on the beach for a bit while listening to th
 
 <figure class="image-row">
   <img src="./beach1.JPEG" alt="Beach">
-  <video src="./water.mp4" alt="Water Loop" autoplay loop muted></video>
+  <video src="./water.MP4" alt="Water Loop" autoplay loop muted></video>
   <figcaption>Surprisingly big waves on this day</figcaption>
 </figure>
 
@@ -124,7 +124,7 @@ I decided to rent an e-bike at the visitor center so I could see a bit more of t
 
 <figure class="image-row">
   <img src="./arboretum_bike_2.JPEG" alt="Arboretum">
-  <video src="./arboretum_bike.mp4" alt="" autoplay loop muted></video>
+  <video src="./arboretum_bike.MP4" alt="" autoplay loop muted></video>
   <figcaption>So you actually aren't allowed to ride the bike on the dirt paths but luckily the road has trees too </figcaption>
 </figure>
 
@@ -177,9 +177,9 @@ Afterwards I finished my drive to Minneapolis where I stopped by the Como Park Z
 
 <figure class="image-row">
   <img src="./sloth.JPEG" alt="Sloth">
-   <video src="./giraffe.mp4" alt="" autoplay loop muted></video>
+   <video src="./giraffe.MP4" alt="" autoplay loop muted></video>
    <img src="./tiger.JPEG" alt="Tiger">
-   <video src="./emu.mp4" alt="" autoplay loop muted></video>
+   <video src="./emu.MP4" alt="" autoplay loop muted></video>
   <figcaption>How is the sloth doing that</figcaption>
 </figure>
 
@@ -189,7 +189,7 @@ My favorite part of the zoo were these placards which told you the names and per
 
 <figure class="image-row">
   <img src="./devin_pic.JPEG" alt="Sloth">
-   <video src="./devin_video.mp4" alt="" autoplay loop muted></video>
+   <video src="./devin_video.MP4" alt="" autoplay loop muted></video>
   <figcaption>Murphy (human) meets Murphy (lemur)</figcaption>
 </figure>
 
@@ -224,7 +224,7 @@ I woke up well rested on Day 6 and decided to take a jog around the hotel and ge
 
 <figure class="image-row">
   <img src="./missouri_me.JPEG" alt="Missouri river and devin">
-   <video src="./missouri_river.mp4" alt="" autoplay loop muted></video>
+   <video src="./missouri_river.MP4" alt="" autoplay loop muted></video>
   <figcaption>Pretty sure I got flea bites here, long pants reccomended</figcaption>
 </figure>
 
@@ -245,7 +245,7 @@ On my way to Billings I decided to visit Montana's largest state park, [Makoshik
 <figure class="image-row">
   <img src="./makoshika_valley.JPEG" alt="Valley">
    <img src="./makoshika_bench.JPEG" alt="Bench">
-  <figcaption>The kind of place so quiet it makes you feel like a <a href="https://en.wikipedia.org/wiki/Foley_(sound_design">Foley artist</a></figcaption>
+  <figcaption>The kind of place so quiet it makes you feel like a <a href="https://en.wikipedia.org/wiki/Foley_(sound_design)">Foley artist</a></figcaption>
 </figure>
 
 One of the two short hikes I did was in this valley where you could get really close to the layers of sediment that make up oil
