@@ -38,7 +38,7 @@ After dinner I retired to my room where I remember sleeping very well. The stay 
 This was my first day in Yellowstone. My plan was to stick near the stuff within roughly an hour and a half from the north entrance of the park, since my accomodation was nearby. I wanted to start with the Mount Washburn hike in the morning, but when I got there I saw a sign at the trail head warning hikers that this region of the park has particularly high bear activity particularly during this part of the year. Given that I saw a baby one on my drive in, I figured I should grab some bear spray before attempting this hike solo.
 
 <figure class="image-row">
-  <video src="./bear.mov" alt="baby bear" autoplay loop muted></video>
+  <video src="./bear.MOV" alt="baby bear" autoplay loop muted></video>
   <figcaption>Saw a bear within 30 minutes of entering the park :0</figcaption>
 </figure>
 
@@ -55,7 +55,7 @@ The mammoth springs have this scaffolded stadium type of structure from the year
 
 <figure class="image-row">
   <img src="./mammoth2.JPEG" alt="Mammoth Spring">
-  <video src="./mammoth.mov" alt="Mammoth" autoplay loop muted></video>
+  <video src="./mammoth.MOV" alt="Mammoth" autoplay loop muted></video>
   <figcaption>Enjoyed watching bird baths at the edge of the spring</figcaption>
 </figure>
 
@@ -66,7 +66,7 @@ Yellowstone is so big that even these few stops consisted of many hours of drivi
 Today the plan was to drive from the North entrance of the park, down to lake Yellowstone, and out towards the West entrance. On my way in there was a huge bison herd grazing near the road.
 
 <figure class="image-row">
-  <video src="./bison.mov" alt="Bison" autoplay loop muted></video>
+  <video src="./bison.MOV" alt="Bison" autoplay loop muted></video>
 </figure>
 
 Equipped with my bear spray, I started the day by summiting Mount Washburn
@@ -155,7 +155,7 @@ The last day of my drive! I decided to check out the [Multnomah Falls](https://s
 
 <figure class="image-row">
   <img src="./falls_1.JPEG" alt="Bottom falls">
-  <video src="./falls_2.mov" alt="Falls" autoplay loop muted></video>
+  <video src="./falls_2.MOV" alt="Falls" autoplay loop muted></video>
 
   <img src="./falls_3.JPEG" alt="Bottom falls">
   <img src="./falls_4.JPEG" alt="Bottom falls">
