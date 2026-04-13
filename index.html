@@ -1,3 +1,6 @@
+---
+templateEngineOverride: njk
+---
 <!doctype html>
 <html lang="en">
 
@@ -48,7 +51,7 @@
         <div class="col-sm-auto col-wrapper d-flex align-items-center">
           <div id="profile-credit" class="picture">
             <img id="profile" src="assets/profile/avatar.jpg" class="img-responsive" alt="[Devin :)]"/>
-            
+
           </div>
         </div>
 
@@ -59,7 +62,7 @@
             <div></div>
             <div>Email: <a href="mailto:devinmur@uw.edu">devinmur@uw.edu</a></div>
             <div class="social">
-              <a href="assets/profile/DevinCVSep2025.pdf" download>CV</a> /
+              <a href="assets/profile/DevinCVLatest.pdf" download>CV</a> /
               <a href="https://scholar.google.com/citations?user=nSQ9LaAAAAAJ">Scholar</a> /
               <a href="https://github.com/devinmur29">GitHub</a> /
               <a href="https://www.linkedin.com/in/devin-murphy-78947318b/">LinkedIn</a>
@@ -87,10 +90,10 @@
       </div>
       <div class="row section-item">
         <div class="col col-wrapper">
-          Hello! I'm a first year Ph.D student at University of Washington ECE, advised by 
+          Hello! I'm a first year Ph.D student at University of Washington ECE, advised by
           Prof. <a href="https://yyueluo.com/">Yiyue Luo</a> and Prof. <a href="https://www.akshaygadre.com/">Akshay Gadre</a>.
           Previously, I completed my Bachelor's and Master's degrees at <a href="https://www.eecs.mit.edu/">MIT EECS</a> advised by Prof. <a href="https://cdfg.mit.edu/wojciech">Wojciech Matusik</a>
-          in CSAIL and Prof. <a href="https://pliang279.github.io/">Paul Pu Liang</a> at the Media Lab. 
+          in CSAIL and Prof. <a href="https://pliang279.github.io/">Paul Pu Liang</a> at the Media Lab.
         </div>
       </div>
       <div class="row section-item">
@@ -100,11 +103,6 @@
           <a data-bs-toggle="collapse" href="#more-content" id="more-trigger" title="Load More">[...]</a>
         </div>
       </div>
-      <!-- <div class="row section-item">
-        <div class="col col-wrapper">
-          <div class="highlight">I am on job market now. Let's chat ;)</div>
-        </div>
-      </div> -->
     </div>
     <!-- Bio -->
 
@@ -120,388 +118,207 @@
         </div>
       </div>
 
-       <!-- begin -->
+      {% for pub in publications %}
+      {% if not pub.hidden %}
       <div class="section-item">
         <div class="row align-items-center">
           <div class="col-xs-12 col-md-auto col-wrapper">
             <div class="figure">
-                <img src="assets/opentouch/project_opentouch.gif" alt="[Opentouch]">
+              <img src="{{ pub.thumbnail }}" alt="[{{ pub.id }}]">
             </div>
           </div>
           <div class="col-xs-12 col-md col-wrapper">
             <div class="title">
-                <a href="https://arxiv.org/abs/2512.16842">OPENTOUCH: Bringing Full-Hand Touch to Real-World Interaction</a>
+              {% if pub.paper_url %}
+              <a href="{{ pub.paper_url }}"{% if pub.paper_download %} download{% endif %}>{{ pub.title }}</a>
+              {% else %}
+              {{ pub.title }}
+              {% endif %}
             </div>
             <div class="authors">
-              <a href="https://rayxsong.com/">Yuxin Ray Song</a><sup>*</sup>,
-              <a href="https://kingchou007.github.io/">Jinzhou Li</a><sup>*</sup>,
-              <a href="https://freddierao.github.io/">Rao Fu</a><sup>*</sup>,
-              <me>Devin Murphy</me>,
-              Rishi Shiv,
-              Yaqi Li,
-              Haoyu Xiong,
-              Crystal E. Owens,
-              Yilun Du,
-              Yiyue Luo,
-              Xianyi Cheng,
-              Antonio Torralba,
-              Wojciech Matusik,
-              and Paul Pu Liang
+              {%- for author in pub.authors -%}
+                {%- if author.url -%}<a href="{{ author.url }}">{%- endif -%}
+                {%- if author.me -%}<me>{%- endif -%}
+                {{- author.name -}}
+                {%- if author.equal -%}<sup>*</sup>{%- endif -%}
+                {%- if author.me -%}</me>{%- endif -%}
+                {%- if author.url -%}</a>{%- endif -%}
+                {%- if not loop.last -%},{%- endif %}
+              {%- endfor %}
             </div>
             <div class="link">
-              <span class="venue">Preprint</span> /
-              <a href="https://arxiv.org/abs/2512.16842">Paper</a> /
-              <a href="https://opentouch-tactile.github.io/">Website</a> /
-              <a href="https://wiresens-gloves.vercel.app/">Open Source Hardware</a> 
-
+              <span class="venue">{% if pub.venue_url %}<a href="{{ pub.venue_url }}">{{ pub.venue }}</a>{% else %}{{ pub.venue }}{% endif %}</span>
+              {%- if pub.paper_url %} / <a href="{{ pub.paper_url }}"{% if pub.paper_download %} download{% endif %}>Paper</a>{% endif %}
+              {%- if pub.website_url %} / <a href="{{ pub.website_url }}">Website</a>{% endif %}
+              {%- if pub.hardware_url %} / <a href="{{ pub.hardware_url }}">Open Source Hardware</a>{% endif %}
+              {%- if pub.code_url %} / <a href="{{ pub.code_url }}">Code</a>{% endif %}
+              {%- if pub.video_url %} / <a href="{{ pub.video_url }}">Video</a>{% endif %}
+              {%- if pub.poster_url %} / <a href="{{ pub.poster_url }}">Poster</a>{% endif %}
+              {%- if pub.bibtex %} / <a data-bs-toggle="collapse" href="#bibtex-{{ pub.id }}" onclick="return false">bibtex</a>{% endif %}
             </div>
+            {% if pub.press %}
+            <div class="link">
+              Covered by
+              {% for item in pub.press %}[<a href="{{ item.url }}">{{ item.name }}</a>]{% if not loop.last %} {% endif %}{% endfor %}
+            </div>
+            {% endif %}
           </div>
         </div>
 
-        <!-- bibtex -->
-        <div class="collapse" id="bibtex-wiresens">
+        {% if pub.bibtex %}
+        <div class="collapse" id="bibtex-{{ pub.id }}">
           <div class="row align-items-center">
             <div class="col col-wrapper">
-              <pre class="snippet">
-<code>@misc{song2025opentouchbringingfullhandtouch,
-      title={OPENTOUCH: Bringing Full-Hand Touch to Real-World Interaction}, 
-      author={Yuxin Ray Song and Jinzhou Li and Rao Fu and Devin Murphy and Kaichen Zhou and Rishi Shiv and Yaqi Li and Haoyu Xiong and Crystal Elaine Owens and Yilun Du and Yiyue Luo and Xianyi Cheng and Antonio Torralba and Wojciech Matusik and Paul Pu Liang},
-      year={2025},
-      eprint={2512.16842},
-      archivePrefix={arXiv},
-      primaryClass={cs.CV},
-      url={https://arxiv.org/abs/2512.16842}, 
-}</code></pre>
+              <pre class="snippet"><code>{{ pub.bibtex }}</code></pre>
             </div>
           </div>
         </div>
+        {% endif %}
       </div>
-      <!-- end -->
+      {% endif %}
+      {% endfor %}
 
-
-      <!-- begin -->
-      <div class="section-item">
-        <div class="row align-items-center">
-          <div class="col-xs-12 col-md-auto col-wrapper">
-            <div class="figure">
-                <img src="assets/wiresens/wiresens.png" alt="[WiReSens]">
-            </div>
-          </div>
-          <div class="col-xs-12 col-md col-wrapper">
-            <div class="title">
-                <a href="https://arxiv.org/abs/2412.00247">WiReSens Toolkit: An Open-Source Platform Towards Accesible Wireless Tactile Sensing</a>
-            </div>
-            <div class="authors">
-              <me>Devin Murphy</me>,
-              <a href="https://www.junyizhu.com/">Junyi Zhu</a>,
-              <a href="https://www.akshaygadre.com/">Akshay Gadre</a>,
-              <a href="https://groups.csail.mit.edu/vision/torralbalab/">Antonio Torralba</a>,
-              <a href="https://pliang279.github.io/">Paul Pu Liang</a>,
-              <a href="https://cdfg.mit.edu/wojciech">Wojciech Matusik</a>, 
-              and <a href="https://yyueluo.com/">Yiyue Luo</a>
-            </div>
-            <div class="link">
-              <span class="venue"><a href="https://tei.acm.org/2026/">TEI 2026</a></span> /
-              <a href="https://arxiv.org/abs/2412.00247">Paper</a> /
-              <a href="https://github.com/WiReSens-Toolkit">Code</a> /
-              <a href="https://vimeo.com/1078431201">Video</a> /
-              <a data-bs-toggle="collapse" href="#bibtex-wiresens" onclick="return false">bibtex</a>
-            </div>
-          </div>
-        </div>
-
-        <!-- bibtex -->
-        <div class="collapse" id="bibtex-wiresens">
-          <div class="row align-items-center">
-            <div class="col col-wrapper">
-              <pre class="snippet">
-<code>@misc{murphy2024wiresenstoolkitopensourceplatform,
-  title={WiReSens Toolkit: An Open-source Platform towards Accessible Wireless Tactile Sensing}, 
-  author={Devin Murphy and Junyi Zhu and Paul Pu Liang and Wojciech Matusik and Yiyue Luo},
-  year={2024},
-  eprint={2412.00247},
-  archivePrefix={arXiv},
-  primaryClass={cs.HC},
-  url={https://arxiv.org/abs/2412.00247}, 
-}</code></pre>
-            </div>
-          </div>
-        </div>
-      </div>
-      <!-- end -->
-
-      <!-- begin -->
-      <div class="section-item">
-        <div class="row align-items-center">
-          <div class="col-xs-12 col-md-auto col-wrapper">
-            <div class="figure">
-                <img src="assets/flex/teaser.jpg" alt="[Flex-Glove]">
-            </div>
-          </div>
-          <div class="col-xs-12 col-md col-wrapper">
-            <div class="title">
-              <a href="https://dl.acm.org/doi/10.1145/3706599.3720147">
-                Fits Like a Flex-Glove: Automatic Design of Personalized FPCB-Based Tactile Sensing Gloves
-              </a>
-            </div>
-            <div class="authors">
-              <me>Devin Murphy</me>,
-              <a href="https://people.csail.mit.edu/yichenl/">Yichen Li</a>,
-              <a href="https://www.crystalowens.com/">Crystal Owens</a>,
-              <a href="https://laylastanton.myportfolio.com/">Layla Stanton</a>,
-              <a href="https://www.linkedin.com/in/youngyjl/">Young Joong Lee</a>,
-              <a href="https://pliang279.github.io/">Paul Pu Liang</a>,
-              <a href="https://yyueluo.com/">Yiyue Luo</a>,
-              <a href="https://groups.csail.mit.edu/vision/torralbalab/">Antonio Torralba</a>,
-              and
-              <a href="https://cdfg.mit.edu/wojciech">Wojciech Matusik</a>
-            </div>
-            <div class="link">
-              <span class="venue"><a href="https://chi2025.acm.org/">CHI EA 2025</a></span> /
-              <a href="https://dl.acm.org/doi/10.1145/3706599.3720147">Paper</a> /
-              <a href="https://drive.google.com/file/d/1APCscfJqdH6K8uS2LmpUuVVrReLfkDrS/view?usp=sharing">Poster</a> /
-              <a href="https://vimeo.com/1076775151">Video</a> /
-              <a data-bs-toggle="collapse" href="#bibtex-flexglove" onclick="return false">bibtex</a>
-            </div>
-            <div class="link">
-              Covered by 
-              [<a href="https://www.hackster.io/news/affordable-smart-gloves-bring-tactile-sensing-to-the-masses-1ca01933ea3b">Hackster.io</a>] 
-              [<a href="https://www.washington.edu/news/2026/01/27/smart-glove-electronic-touch-pressure-sensor-engineeering-soft-robotics/">UW News</a>] 
-            </div>
-            </div>
-          </div>
-        </div>
-
-        <!-- bibtex -->
-        <div class="collapse" id="bibtex-flexglove">
-          <div class="row align-items-center">
-            <div class="col col-wrapper">
-              <pre class="snippet">
-<code>@inproceedings{10.1145/3706599.3720147,
-  author = {Murphy, Devin and Li, Yichen and Owens, Crystal Elaine and Stanton, Layla and Liang, Paul Pu and Luo, Yiyue and Torralba, Antonio and Matusik, Wojciech},
-  title = {Fits like a Flex-Glove: Automatic Design of Personalized FPCB-Based Tactile Sensing Gloves},
-  year = {2025},
-  isbn = {9798400713958},
-  publisher = {Association for Computing Machinery},
-  address = {New York, NY, USA},
-  url = {https://doi.org/10.1145/3706599.3720147},
-  doi = {10.1145/3706599.3720147},
-  abstract = {Resistive tactile sensing gloves have captured the interest of researchers spanning diverse domains, such as robotics, healthcare, and human-computer interaction. However, existing fabrication methods often require labor-intensive assembly or costly equipment, limiting accessibility. Leveraging flexible printed circuit board (FPCB) technology, we present an automated pipeline for generating resistive tactile sensing glove design files solely from a simple hand photo on legal-size paper, which can be readily supplied to commercial board houses for manufacturing. Our method enables cost-effective, accessible production at under $130 per glove with sensor assembly times under 15 minutes. Sensor performance was characterized under varying pressure loads, and a preliminary user evaluation showcases four unique automatically manufactured designs, evaluated for their reliability and comfort.},
-  booktitle = {Proceedings of the Extended Abstracts of the CHI Conference on Human Factors in Computing Systems},
-  articleno = {280},
-  numpages = {8},
-  keywords = {Tactile Sensing, Flexible PCB, Wearable Devices},
-  location = {
-  },
-  series = {CHI EA '25}
-  }</code></pre>
-            </div>
-          </div>
-        </div>
-
-         <!-- begin -->
-       
-      <div class="section-item">
-        <div class="row align-items-center">
-          <div class="col-xs-12 col-md-auto col-wrapper">
-            <div class="figure">
-                <img src="assets/calpal/teaser.png" alt="[CalPal]">
-            </div>
-          </div>
-          <div class="col-xs-12 col-md col-wrapper">
-            <div class="title">
-                CalPal: An Intelligent Multimodal Digital Wall Calendar
-            </div>
-            <div class="authors">
-              <me>Devin Murphy<sup>*</sup></me>,
-              <a href="https://www.linkedin.com/in/jenny-moralejo/">Jenny Moralejo<sup>*</sup></a>,
-              <a href="https://pliang279.github.io/">Paul Pu Liang</a>,
-            </div>
-            <div class="link">
-              <span class="venue"><a href="https://pienso.com/events/mind-mixed-initiative-next-gen-design-iui-2025">IUI Workshops 2025</a></span> /
-              <a href="assets/calpal/calpal_mind_25.pdf" download>Paper</a> /
-              <a href="https://github.com/jmortan/CalPal">Code</a> /
-              <a href="https://vimeo.com/1052472705">Video</a>
-              <!-- <a data-bs-toggle="collapse" href="#bibtex-kan2" onclick="return false">bibtex</a> -->
-            </div>
-          </div>
-        </div>
-      </div>
-      <!-- end -->
-
-     
-
-        <!-- bibtex -->
-        <!-- <div class="collapse" id="bibtex-kan2">
-          <div class="row align-items-center">
-            <div class="col col-wrapper">
-              <pre class="snippet">
-<code>@article{liu2024kan,
-  title={Kan 2.0: Kolmogorov-arnold networks meet science},
-  author={Liu, Ziming and Ma, Pingchuan and Wang, Yixuan and Matusik, Wojciech and Tegmark, Max},
-  journal={arXiv preprint arXiv:2408.10205},
-  year={2024}
-}</code></pre>
-            </div>
-          </div> -->
-        </div>
-      <!-- end -->
+    </div>
     <!-- Research -->
-    
 
-    <!-- Collapse -->
-      <div class="sec-wrapper exp-wrapper" id="proj">
-        <div class="row section-head">
-          <div class="col-md-auto col-wrapper">
-            <div class="section-title"><a data-bs-toggle="collapse" href="#more-projects" id="more-trigger" title="Load Projects">More Projects</a></div>
-          </div>
-          <div class="col-md section-sub col-wrapper">
-          Projects from Undergrad Research and Coursework
-          </div>
-          
+    <!-- More Projects -->
+    <div class="sec-wrapper exp-wrapper" id="proj">
+      <div class="row section-head">
+        <div class="col-md-auto col-wrapper">
+          <div class="section-title"><a data-bs-toggle="collapse" href="#more-projects" id="more-trigger" title="Load Projects">More Projects</a></div>
         </div>
-     </div>
+        <div class="col-md section-sub col-wrapper">
+          Projects from Undergrad Research and Coursework
+        </div>
+      </div>
+    </div>
 
-     <div class="collapse" id="more-projects">
+    <div class="collapse" id="more-projects">
       <div class="sec-wrapper pub-wrapper" id="projects">
+
         <!-- begin -->
         <div class="section-item">
-        <div class="row align-items-center">
-          <div class="col-xs-12 col-md-auto col-wrapper">
-            <div class="figure">
+          <div class="row align-items-center">
+            <div class="col-xs-12 col-md-auto col-wrapper">
+              <div class="figure">
                 <img src="assets/membranas/featured.jpg" alt="[Membranas]">
+              </div>
             </div>
-          </div>
-          <div class="col-xs-12 col-md col-wrapper">
-            <div class="title">
-              <a href="https://nicolelhuillier.com/portfolio/membranas/">
-                Membranas
-              </a>
-            </div>
-            <div class="authors">
-              A spatial sound sculpture for more-than-human exchanges. With <b><a href="https://nicolelhuillier.com/">Nicole L'Huillier</a></b> and
-              <b><a href="https://jessie.webspawn.com/">Jessie Mindel</a></b>
-            </div>
-            <div class="link">
-              <span class="venue"><a href="https://www.media.mit.edu/groups/opera-of-the-future/overview/">Undergrad RA - Opera of the Future</a></span> /
-              <a href="https://vimeo.com/818163062">Video</a>
-              
+            <div class="col-xs-12 col-md col-wrapper">
+              <div class="title">
+                <a href="https://nicolelhuillier.com/portfolio/membranas/">Membranas</a>
+              </div>
+              <div class="authors">
+                A spatial sound sculpture for more-than-human exchanges. With <b><a href="https://nicolelhuillier.com/">Nicole L'Huillier</a></b> and
+                <b><a href="https://jessie.webspawn.com/">Jessie Mindel</a></b>
+              </div>
+              <div class="link">
+                <span class="venue"><a href="https://www.media.mit.edu/groups/opera-of-the-future/overview/">Undergrad RA - Opera of the Future</a></span> /
+                <a href="https://vimeo.com/818163062">Video</a>
+              </div>
             </div>
           </div>
         </div>
-      </div>
-      <!--end-->
+        <!-- end -->
 
-      <!-- begin -->
+        <!-- begin -->
         <div class="section-item">
-        <div class="row align-items-center">
-          <div class="col-xs-12 col-md-auto col-wrapper">
-            <div class="figure">
+          <div class="row align-items-center">
+            <div class="col-xs-12 col-md-auto col-wrapper">
+              <div class="figure">
                 <img src="assets/speechformants/speech.png" alt="[speech]">
+              </div>
             </div>
-          </div>
-          <div class="col-xs-12 col-md col-wrapper">
-            <div class="title">
-              <a href="assets/speechformants/speechFormants.pdf">
-                MRI to Speech
-              </a>
-            </div>
-            <div class="authors">
-              Using computer vision to predict acoustic properties of the vocal tract
-            </div>
-            <div class="link">
-              <span class="venue"><a href="https://advances-in-vision.github.io/">6.8300 Final Project</a></span>
+            <div class="col-xs-12 col-md col-wrapper">
+              <div class="title">
+                <a href="assets/speechformants/speechFormants.pdf">MRI to Speech</a>
+              </div>
+              <div class="authors">
+                Using computer vision to predict acoustic properties of the vocal tract
+              </div>
+              <div class="link">
+                <span class="venue"><a href="https://advances-in-vision.github.io/">6.8300 Final Project</a></span>
+              </div>
             </div>
           </div>
         </div>
-      </div>
-      <!--end-->
+        <!-- end -->
 
-      <!-- begin -->
+        <!-- begin -->
         <div class="section-item">
-        <div class="row align-items-center">
-          <div class="col-xs-12 col-md-auto col-wrapper">
-            <div class="figure">
+          <div class="row align-items-center">
+            <div class="col-xs-12 col-md-auto col-wrapper">
+              <div class="figure">
                 <img src="assets/kaboom/featured.png" alt="[Kaboom]">
+              </div>
             </div>
-          </div>
-          <div class="col-xs-12 col-md col-wrapper">
-            <div class="title">
-              <a href="assets/kaboom/kaboom.pdf">
-                Kaboom
-              </a>
-            </div>
-            <div class="authors">
-              An FPGA based cooperative puzzle game in which players work together to defuse a bomb.
-            </div>
-            <div class="link">
-              <span class="venue"><a href="https://ocw.mit.edu/courses/6-111-introductory-digital-systems-laboratory-spring-2006/">6.111 Final Project</a></span> /
-              <a href="assets/kaboom/kaboom_manual.pdf">Game Manual</a> /
-              <a href="https://vimeo.com/876750178">Video</a>
+            <div class="col-xs-12 col-md col-wrapper">
+              <div class="title">
+                <a href="assets/kaboom/kaboom.pdf">Kaboom</a>
+              </div>
+              <div class="authors">
+                An FPGA based cooperative puzzle game in which players work together to defuse a bomb.
+              </div>
+              <div class="link">
+                <span class="venue"><a href="https://ocw.mit.edu/courses/6-111-introductory-digital-systems-laboratory-spring-2006/">6.111 Final Project</a></span> /
+                <a href="assets/kaboom/kaboom_manual.pdf">Game Manual</a> /
+                <a href="https://vimeo.com/876750178">Video</a>
+              </div>
             </div>
           </div>
         </div>
-      </div>
-      <!--end-->
+        <!-- end -->
 
-       <!-- begin -->
+        <!-- begin -->
         <div class="section-item">
-        <div class="row align-items-center">
-          <div class="col-xs-12 col-md-auto col-wrapper">
-            <div class="figure">
+          <div class="row align-items-center">
+            <div class="col-xs-12 col-md-auto col-wrapper">
+              <div class="figure">
                 <img src="assets/campaign/featured.png" alt="[campaign]">
+              </div>
             </div>
-          </div>
-          <div class="col-xs-12 col-md col-wrapper">
-            <div class="title">
-              <a href="assets/campaign/campaign.pdf">
-                Campaign Spending Strategies
-              </a>
-            </div>
-            <div class="authors">
-              Using ML and statistical methods to asses the effectiveness of campaign spending strategies for U.S. House of Representatives candidates
-            </div>
-            <div class="link">
-              <span class="venue"><a href="https://web.mit.edu/insong/www/pdf/syl-poldata.pdf">17.835 Final Project</a></span> 
+            <div class="col-xs-12 col-md col-wrapper">
+              <div class="title">
+                <a href="assets/campaign/campaign.pdf">Campaign Spending Strategies</a>
+              </div>
+              <div class="authors">
+                Using ML and statistical methods to assess the effectiveness of campaign spending strategies for U.S. House of Representatives candidates
+              </div>
+              <div class="link">
+                <span class="venue"><a href="https://web.mit.edu/insong/www/pdf/syl-poldata.pdf">17.835 Final Project</a></span>
+              </div>
             </div>
           </div>
         </div>
-      </div>
-      <!--end-->
+        <!-- end -->
 
-      <!-- begin -->
+        <!-- begin -->
         <div class="section-item">
-        <div class="row align-items-center">
-          <div class="col-xs-12 col-md-auto col-wrapper">
-            <div class="figure">
+          <div class="row align-items-center">
+            <div class="col-xs-12 col-md-auto col-wrapper">
+              <div class="figure">
                 <img src="assets/forthem/featured.png" alt="[forthem]">
+              </div>
             </div>
-          </div>
-          <div class="col-xs-12 col-md col-wrapper">
-            <div class="title">
-              <a href="assets/forthem/forthem.pdf">
-                For Them
-              </a>
-            </div>
-            <div class="authors">
-              A piece I composed for solo clarinet and live electronics using Max. Performed by <b><a href="https://ranemoore.com/">Rane Moore</a></b>, principal clarinetist of the <b><a href="https://www.bostonphil.org/">Boston Philharmonic</a></b>.
-            </div>
-            <div class="link">
-              <span class="venue"><a href="https://musictech.mit.edu/composing-solo-instrument-and-live-electronics-21m380/#overlay-context=courses">21M.380 Final Project</a></span> /
-              <a href="assets/forthem/for_them_audio.wav">Recording</a>
+            <div class="col-xs-12 col-md col-wrapper">
+              <div class="title">
+                <a href="assets/forthem/forthem.pdf">For Them</a>
+              </div>
+              <div class="authors">
+                A piece I composed for solo clarinet and live electronics using Max. Performed by <b><a href="https://ranemoore.com/">Rane Moore</a></b>, principal clarinetist of the <b><a href="https://www.bostonphil.org/">Boston Philharmonic</a></b>.
+              </div>
+              <div class="link">
+                <span class="venue"><a href="https://musictech.mit.edu/composing-solo-instrument-and-live-electronics-21m380/#overlay-context=courses">21M.380 Final Project</a></span> /
+                <a href="assets/forthem/for_them_audio.wav">Recording</a>
+              </div>
             </div>
           </div>
         </div>
-      </div>
-      <!--end-->
-        
+        <!-- end -->
 
       </div>
-          
+    </div>
 
-
-     </div>
-     
     <!-- <div class="show" id="more-content"> -->
     <div class="collapse" id="more-content">
 
@@ -578,7 +395,7 @@
             <div class="section-title">Experience</div>
           </div>
         </div>
-        
+
         <!-- begin -->
         <div class="section-item">
           <div class="row align-items-center">
@@ -647,7 +464,6 @@
           </div>
         </div>
         <!-- end -->
-
 
       </div>
       <!-- Experience -->

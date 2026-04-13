@@ -1,0 +1,26 @@
+---
+templateEngineOverride: njk
+permalink: /llms.txt
+---
+# {{ cv.name }}
+
+> {{ cv.title }}, {{ cv.institution }}. {{ cv.research_interests | safe }}
+
+## Contact
+
+- Email: {{ cv.email }}
+- Website: {{ cv.urls.website }}
+- Google Scholar: {{ cv.urls.scholar }}
+
+## Research
+
+{% for pub in publications %}{% if not pub.hidden %}- {% if pub.paper_url and pub.paper_url.startsWith('http') %}[{{ pub.title }}]({{ pub.paper_url }}){% else %}{{ pub.title }}{% endif %}: {% for author in pub.authors %}{{ author.name }}{% if not loop.last %}, {% endif %}{% endfor %}. {{ pub.venue }}, {{ pub.year }}.
+{% endif %}{% endfor %}
+## Blogs
+
+{% for post in collections.post %}- [{{ post.data.title | safe }}]({{ cv.urls.website }}{{ post.url }}): {{ post.data.summary | safe }}
+{% endfor %}
+## Education
+
+{% for edu in cv.education %}- {{ edu.degree }}, {{ edu.institution }} ({{ edu.dates }})
+{% endfor %}

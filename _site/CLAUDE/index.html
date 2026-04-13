@@ -1,0 +1,80 @@
+<h1>CLAUDE.md</h1>
+<p>This file provides guidance to Claude Code (claude.ai/code) when working with code in this repository.</p>
+<h2>About</h2>
+<p>Personal academic/research homepage for Devin Murphy (PhD student at UW ECE), deployed via GitHub Pages.</p>
+<h2>Build &amp; Development</h2>
+<p>Requires <strong>Node.js</strong> (for Eleventy) and <strong>Typst</strong> (for CV PDF). Typst is installed via <code>winget install Typst.Typst</code>.</p>
+<pre><code class="language-bash">npm install          # install Node deps (first time)
+
+npm start            # Eleventy dev server with hot reload
+npm run build        # compile CV PDF → then build site
+npm run build:cv     # compile CV PDF only (typst)
+npm run build:eleventy  # build site only (no CV)
+</code></pre>
+<p>The <code>_site/</code> directory is the build output and is committed to the repo.</p>
+<h2>Architecture</h2>
+<p><strong>Two distinct parts:</strong></p>
+<ol>
+<li>
+<p><strong>Main homepage</strong> (<code>index.html</code>) — Nunjucks template processed by Eleventy. The Research/publications section is rendered from <code>_data/publications.yaml</code>. Everything else (bio, education, experience, more projects) is static HTML in this file.</p>
+</li>
+<li>
+<p><strong>Blog system</strong> (Eleventy-processed):</p>
+<ul>
+<li><code>blogs.html</code> — Liquid template listing all posts</li>
+<li><code>posts/&lt;slug&gt;/index.md</code> — individual posts with frontmatter: <code>title</code>, <code>date</code>, <code>layout: post.html</code>, <code>permalink</code>, <code>summary</code></li>
+<li><code>_includes/post.html</code> — layout template for individual post pages</li>
+</ul>
+</li>
+<li>
+<p><strong>CV PDF</strong> (<code>cv/cv.typ</code>) — Typst template that reads <code>_data/cv.yaml</code> and <code>_data/publications.yaml</code>. Compiled to <code>assets/profile/DevinCVLatest.pdf</code>. The <code>--root .</code> flag is required so Typst can read files outside <code>cv/</code>.</p>
+</li>
+</ol>
+<h2>Content Management</h2>
+<h3>Adding / updating a publication</h3>
+<p>Edit <code>_data/publications.yaml</code>. Each entry:</p>
+<pre><code class="language-yaml">- id: unique-slug          # used for bibtex collapse anchor ID
+  title: &quot;Full title&quot;
+  authors:
+    - name: &quot;Author Name&quot;
+      url: &quot;https://...&quot;   # optional
+      me: true             # bold on website and CV
+      equal: true          # adds * superscript
+  venue: &quot;CHI 2026&quot;
+  venue_url: &quot;https://...&quot;  # optional
+  year: 2026
+  paper_url: &quot;https://...&quot;
+  website_url: &quot;...&quot;        # optional
+  code_url: &quot;...&quot;           # optional
+  video_url: &quot;...&quot;          # optional
+  poster_url: &quot;...&quot;         # optional
+  hardware_url: &quot;...&quot;       # optional
+  paper_download: true      # adds download attribute (for local PDFs)
+  thumbnail: &quot;assets/&lt;proj&gt;/image.png&quot;
+  press:                    # optional press coverage
+    - name: &quot;Outlet Name&quot;
+      url: &quot;https://...&quot;
+  bibtex: |                 # optional, literal block
+    @misc{key, ...}
+  hidden: false             # true = omit from website but keep in CV PDF
+  note: &quot;Best Paper Award&quot;  # optional, shown in CV only
+</code></pre>
+<p>Then run <code>npm run build</code> to regenerate the site and CV.</p>
+<h3>Updating CV personal info (education, experience, bio)</h3>
+<p>Edit <code>_data/cv.yaml</code>. Then run <code>npm run build:cv</code> for the PDF, or <code>npm run build</code> for both.</p>
+<h3>Adding a blog post</h3>
+<p>Create <code>posts/&lt;slug&gt;/index.md</code> with frontmatter:</p>
+<pre><code class="language-markdown">---
+title: &quot;Post Title&quot;
+date: YYYY-MM-DD
+layout: post.html
+permalink: &quot;/posts/&lt;slug&gt;/&quot;
+summary: &quot;One-line description shown in blog listing&quot;
+---
+</code></pre>
+<p>Any non-<code>.md</code> files in <code>posts/</code> (images, etc.) are passed through to <code>_site/</code> automatically.</p>
+<h2>Branches</h2>
+<ul>
+<li><code>master</code> — main branch, what GitHub Pages serves</li>
+<li><code>html</code> — active development branch (current)</li>
+</ul>

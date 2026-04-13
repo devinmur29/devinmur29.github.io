@@ -1,0 +1,11 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(npx @11ty/eleventy --version)",
+      "Bash(eleventy --version)",
+      "Bash(npx @11ty/eleventy --input=. --output=_site)",
+      "Bash(node -e ':*)",
+      "Bash(npx @11ty/eleventy)"
+    ]
+  }
+}

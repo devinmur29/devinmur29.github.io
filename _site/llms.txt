@@ -1,0 +1,34 @@
+# Devin Murphy
+
+> PhD Student, University of Washington ECE. I research how to create scalable, sustainable systems for sensing the human body and its interactions with the world. My interests are in fabrication techniques for low-profile wearables, wireless sensing, and physical artificial intelligence.
+
+
+## Contact
+
+- Email: devinmur@uw.edu
+- Website: https://devinmurphy.net
+- Google Scholar: https://scholar.google.com/citations?user=nSQ9LaAAAAAJ
+
+## Research
+
+- [OPENTOUCH: Bringing Full-Hand Touch to Real-World Interaction](https://arxiv.org/abs/2512.16842): Yuxin Ray Song, Jinzhou Li, Rao Fu, Devin Murphy, Rishi Shiv, Yaqi Li, Haoyu Xiong, Crystal E. Owens, Yilun Du, Yiyue Luo, Xianyi Cheng, Antonio Torralba, Wojciech Matusik, Paul Pu Liang. Preprint, 2025.
+- [WiReSens Toolkit: An Open-Source Platform Towards Accessible Wireless Tactile Sensing](https://arxiv.org/abs/2412.00247): Devin Murphy, Junyi Zhu, Akshay Gadre, Antonio Torralba, Paul Pu Liang, Wojciech Matusik, Yiyue Luo. ACM TEI 2026, 2026.
+- [Fits Like a Flex-Glove: Automatic Design of Personalized FPCB-Based Tactile Sensing Gloves](https://dl.acm.org/doi/10.1145/3706599.3720147): Devin Murphy, Yichen Li, Crystal Owens, Layla Stanton, Young Joong Lee, Paul Pu Liang, Yiyue Luo, Antonio Torralba, Wojciech Matusik. ACM CHI EA 2025, 2025.
+- CalPal: An Intelligent Multimodal Digital Wall Calendar: Devin Murphy, Jenny Moralejo, Paul Pu Liang. ACM IUI Workshops 2025, 2025.
+
+## Blogs
+
+- [Generating Research Ideas as a First Year PhD Student](https://devinmurphy.net/posts/research-problems/): Where many of my ideas go in the past few months
+- [Driving from Buffalo NY to Seattle WA in 14 Days (Part 2)](https://devinmurphy.net/posts/buffalo-to-seattle-2/): Better late than never!!!
+- [Driving from Buffalo NY to Seattle WA in 14 Days (Part 1)](https://devinmurphy.net/posts/buffalo-to-seattle-1/): The US of A is so big
+- [Doing an M.Eng at MIT EECS](https://devinmurphy.net/posts/meng-advice/): Advice based on my experience take it or leave it :)
+- [Ghosts of Websites Past](https://devinmurphy.net/posts/old-websites/): If I had a nickel for everytime I remade this website I'd have two nickels
+- [Keeping Tabs](https://devinmurphy.net/posts/keeping-tabs/): Hello World
+
+## Education
+
+- PhD in Electrical and Computer Engineering, University of Washington (Sep. 2025 – Present)
+- M.Eng in Electrical Engineering and Computer Science, Massachusetts Institute of Technology (Feb. 2024 – May 2025)
+- B.Sc in Electrical Engineering and Computer Science, Massachusetts Institute of Technology (Sep. 2018 – May 2022)
+- Gifted Math Program, University at Buffalo (Sep. 2013 – May 2018)
+

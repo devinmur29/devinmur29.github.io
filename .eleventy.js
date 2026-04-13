@@ -1,9 +1,15 @@
+const yaml = require("js-yaml");
+
 module.exports = function(eleventyConfig) {
+  // Support YAML data files in _data/
+  eleventyConfig.addDataExtension("yaml", contents => yaml.load(contents));
+  eleventyConfig.addDataExtension("yml", contents => yaml.load(contents));
   // Copy static files directly
   eleventyConfig.addPassthroughCopy("css");
   eleventyConfig.addPassthroughCopy("assets");
+  eleventyConfig.addPassthroughCopy("fonts");
+  eleventyConfig.addPassthroughCopy("js");
   eleventyConfig.addPassthroughCopy("icon.png");
-  eleventyConfig.addPassthroughCopy("index.html");
   eleventyConfig.addPassthroughCopy("posts/**/*.!(md)");
 
   // Create blog post collection
@@ -15,6 +21,7 @@ module.exports = function(eleventyConfig) {
     dir: {
       input: ".",        // everything relative to root
       includes: "_includes",
+      data: "_data",
       output: "_site"    // output directory
     },
     passthroughFileCopy: true

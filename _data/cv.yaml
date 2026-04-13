@@ -1,0 +1,161 @@
+name: "Devin Murphy"
+title: "PhD Student"
+institution: "University of Washington ECE"
+email: "devinmur@uw.edu"
+urls:
+  scholar: "https://scholar.google.com/citations?user=nSQ9LaAAAAAJ"
+  github: "https://github.com/devinmur29"
+  linkedin: "https://www.linkedin.com/in/devin-murphy-78947318b/"
+  website: "https://devinmurphy.net"
+
+research_interests: >
+  I research how to create scalable, sustainable systems for sensing the human body and
+  its interactions with the world. My interests are in fabrication techniques for low-profile
+  wearables, wireless sensing, and physical artificial intelligence.
+
+education:
+  - institution: "University of Washington"
+    url: "https://www.ece.uw.edu/"
+    degree: "PhD in Electrical and Computer Engineering"
+    dates: "Sep. 2025 – Present"
+    location: "Seattle, WA"
+    advisors:
+      - name: "Yiyue Luo"
+        url: "https://yyueluo.com/"
+      - name: "Akshay Gadre"
+        url: "https://www.akshaygadre.com/"
+
+  - institution: "Massachusetts Institute of Technology"
+    url: "https://www.mit.edu/"
+    degree: "M.Eng in Electrical Engineering and Computer Science"
+    dates: "Feb. 2024 – May 2025"
+    location: "Cambridge, MA"
+    advisors:
+      - name: "Wojciech Matusik"
+        url: "https://cdfg.mit.edu/wojciech"
+      - name: "Paul Pu Liang"
+        url: "https://pliang279.github.io/"
+
+  - institution: "Massachusetts Institute of Technology"
+    url: "https://www.mit.edu/"
+    degree: "B.Sc in Electrical Engineering and Computer Science"
+    dates: "Sep. 2018 – May 2022"
+    location: "Cambridge, MA"
+
+  - institution: "University at Buffalo"
+    url: "https://giftedmath.buffalo.edu/"
+    degree: "Gifted Math Program"
+    dates: "Sep. 2013 – May 2018"
+    location: "Buffalo, NY"
+
+awards:
+  - name: "UW ECE Research Showcase Best Demo"
+    description: "Awarded by Apple, for the WiReSens Toolkit"
+    year: 2026
+  - name: "Best Demo Honorable Mention, Jury's Choice"
+    description: "ACM TEI 2026, for the WiReSens Toolkit"
+    year: 2026
+  - name: "Open Hardware Creators in Academia Fellow"
+    description: "Awarded by the Open Source Hardware Association"
+    year: 2025
+  - name: "UW GSEE Graduate Research Fellowship"
+    description: "Tuition, fees, and stipend for first year of PhD"
+    year: 2025
+  - name: "UW College of Engineering Dean's Fellowship"
+    description: "$10,000 additional stipend for four years of PhD"
+    year: 2025
+  - name: "MIT Generative AI Impact Consortium Grant"
+    description: 'Co-writer of $150,000 grant, "Multimodal Tactile Sensing for Robotics" '
+    year: 2025
+  - name: "Point Foundation Flagship Scholarship - Semifinalist"
+    description: 'Competitive scholarship for LGBTQ+ students'
+    year: 2025
+
+talks:
+  - name: "Introduction to Tactile Sensing"
+    description: "University of Notre Dame, Hosted by Prof. Tingyu Cheng"
+    date: "October 2025"
+  - name: "Electric Skin: Wearable Tech and the Future of Fashion"
+    description: "Cambridge Science Festival"
+    date: "September 2024"
+
+service:
+  peer_review:
+    - venue: "ACM CHI Papers"
+      years:
+        - year: 2025
+        - year: 2026
+          outstanding: true
+    - venue: "ACM UIST Papers"
+      years:
+        - year: 2025
+          outstanding: true
+    - venue: "ACM DIS Papers"
+      years:
+        - year: 2026
+          outstanding: true
+          
+  organizing:
+    - description: "CVPR Workshop - Sense of Space: Multi-Sensory Modeling for Embodied Intelligence"
+      url: "https://sense-of-space.github.io/"
+      date: "2026"
+
+teaching:
+  - role: "Teaching Assistant"
+    course: "Fabricating Interactive Artifacts with Tactile Sensing"
+    course_url: "https://art.washington.edu/courses/2025/winter/design/499/b"
+    institution: "UW School of Design"
+    dates: "2025"
+  - role: "Teaching Assistant"
+    course: "Biomedical Signal and Image Processing"
+    course_url: "https://ocw.mit.edu/courses/hst-582j-biomedical-signal-and-image-processing-spring-2007/"
+    institution: "MIT EECS"
+    dates: "2024"
+  - role: "Lab Assistant"
+    course: "Circuits and Electronics"
+    course_url: "https://ocw.mit.edu/courses/6-002-circuits-and-electronics-spring-2007/"
+    institution: "MIT EECS"
+    dates: "2020,2021,2022"
+
+experience:
+  - organization: "The MathWorks"
+    url: "https://www.mathworks.com/"
+    role: "Quality Engineer"
+    dates: "Sept. 2022 – Feb. 2024"
+    location: "Natick, MA"
+
+  - organization: "Yoto"
+    url: "https://uk.yotoplay.com/"
+    role: "Software Intern"
+    dates: "May 2022 – Sept. 2022"
+    location: "London, England"
+
+mentorship:
+  - name: "Juliette Park"
+    dates: "2025-ongoing"
+    description: "Undergrad RA at UW, ongoing projects."
+  - name: "Tanishka Anandkumar"
+    dates: "2025-ongoing"
+    description: "Undergrad RA at UW, ongoing projects."
+  - name: "Nicolas Valayannopoulos-Akrivou"
+    dates: "2025"
+    description: "Undergrad RA at MIT"
+  - name: "Eden Hen"
+    dates: "2025"
+    description: "Undergrad RA at MIT"
+  - name: "Isabel Wabno"
+    dates: "2025"
+    description: "Undergrad RA at UMass Amherst"
+  - name: "Layla Stanton"
+    dates: "2025"
+    description: "Undergrad RA at MIT, co-author on CHI EA 2025 paper"
+
+press:
+  - title: "Q&A: UW researchers create a smart glove with its own sense of touch"
+    outlet: "UW News"
+    url: "https://www.washington.edu/news/2026/01/27/smart-glove-electronic-touch-pressure-sensor-engineeering-soft-robotics/"
+    date: "January 2026"
+  - title: "Affordable Smart Gloves Bring Tactile Sensing to the Masses"
+    outlet: "Hackster.io"
+    url: "https://www.hackster.io/news/affordable-smart-gloves-bring-tactile-sensing-to-the-masses-1ca01933ea3b"
+    date: "July 2025"
