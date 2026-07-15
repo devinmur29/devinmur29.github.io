@@ -18,7 +18,6 @@
 
 ## Blogs
 
-- [Generating Research Ideas as a First Year PhD Student](https://devinmurphy.net/posts/research-problems/): Where many of my ideas go in the past few months
 - [Driving from Buffalo NY to Seattle WA in 14 Days (Part 2)](https://devinmurphy.net/posts/buffalo-to-seattle-2/): Better late than never!!!
 - [Driving from Buffalo NY to Seattle WA in 14 Days (Part 1)](https://devinmurphy.net/posts/buffalo-to-seattle-1/): The US of A is so big
 - [Doing an M.Eng at MIT EECS](https://devinmurphy.net/posts/meng-advice/): Advice based on my experience take it or leave it :)
